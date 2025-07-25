@@ -1,0 +1,236 @@
+/* Menggunakan CSS Custom Properties untuk tema warna yang mudah diubah */
+:root {
+    --bg-color: #1a1a2e;
+    --card-color: #16213e;
+    --primary-color: #0f3460;
+    --accent-color: #e94560;
+    --text-color: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --font-family: 'Poppins', sans-serif;
+}
+
+/* Reset dasar dan gaya body */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Kontainer utama aplikasi */
+.container {
+    background-color: var(--card-color);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+header h1 {
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--accent-color);
+}
+
+header p {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+/* Pilihan Mood */
+.mood-selector {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 40px;
+}
+
+.mood-btn {
+    background: none;
+    border: none;
+    font-size: 3rem; /* Ukuran emoji */
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.mood-btn:hover {
+    transform: scale(1.2);
+    filter: brightness(1.2);
+}
+
+/* Riwayat Mood */
+.history-section h2 {
+    font-weight: 600;
+    margin-bottom: 20px;
+    border-top: 1px solid var(--primary-color);
+    padding-top: 20px;
+}
+
+#mood-history-list {
+    list-style-type: none;
+    max-height: 300px; /* Batas tinggi agar bisa di-scroll */
+    overflow-y: auto;
+    padding-right: 10px; /* Ruang untuk scrollbar */
+}
+
+/* Kustomisasi scrollbar */
+#mood-history-list::-webkit-scrollbar {
+    width: 8px;
+}
+#mood-history-list::-webkit-scrollbar-track {
+    background: var(--primary-color);
+    border-radius: 10px;
+}
+#mood-history-list::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color);
+    border-radius: 10px;
+}
+
+.history-item {
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    animation: fadeIn 0.5s ease; /* Animasi saat item muncul */
+}
+
+.history-item span {
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+.history-item small {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+/* Animasi sederhana */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* ... (semua kode CSS dari sebelumnya tetap sama) ... */
+
+.history-item {
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    animation: fadeIn 0.5s ease;
+}
+
+.history-item span {
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+.history-item small {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* BARU: Style untuk Modal Saran */
+
+.modal-overlay {
+    position: fixed;
+    /* inset: 0; adalah singkatan untuk top:0; right:0; bottom:0; left:0; */
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Kelas 'hidden' untuk menyembunyikan modal */
+.modal-overlay.hidden {
+    opacity: 0;
+    pointer-events: none; /* Agar tidak bisa diklik saat tersembunyi */
+}
+
+.modal-content {
+    background-color: var(--card-color);
+    padding: 40px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.modal-overlay.hidden .modal-content {
+    transform: scale(0.9);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: var(--text-color);
+}
+
+.modal-emoji {
+    font-size: 4rem;
+    margin-bottom: 15px;
+}
+
+#modal-title {
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+#modal-suggestion {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+}

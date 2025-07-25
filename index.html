@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Tracker Sederhana</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Bagaimana Perasaanmu Hari Ini?</h1>
+            <p>Pilih salah satu emoji di bawah untuk mencatat mood-mu.</p>
+        </header>
+
+        <main>
+            <div class="mood-selector">
+                <button class="mood-btn" data-mood="Luar Biasa">😄</button>
+                <button class="mood-btn" data-mood="Baik">😊</button>
+                <button class="mood-btn" data-mood="Biasa Saja">😐</button>
+                <button class="mood-btn" data-mood="Buruk">😟</button>
+                <button class="mood-btn" data-mood="Sangat Buruk">😭</button>
+            </div>
+
+            <div class="history-section">
+                <h2>Riwayat Mood</h2>
+                <ul id="mood-history-list">
+                    </ul>
+            </div>
+        </main>
+    </div>
+
+    <div id="suggestion-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button id="close-modal-btn" class="close-btn">&times;</button>
+            <div id="modal-emoji" class="modal-emoji"></div>
+            <h2 id="modal-title"></h2>
+            <p id="modal-suggestion"></p>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+    
+</body>
+</html>
