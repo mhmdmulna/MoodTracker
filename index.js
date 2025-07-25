@@ -127,4 +127,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Memuat riwayat saat halaman pertama kali dibuka ---
     loadMoodHistory();
+    localStorage.clear();
 });
